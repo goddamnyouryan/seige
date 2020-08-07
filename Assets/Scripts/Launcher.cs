@@ -7,7 +7,7 @@ public class Launcher : MonoBehaviour
     float inputStart;
     float inputEnd;
     bool charging;
-    public float maxLaunchPowerTime = 2f;
+    public float maxLaunchPowerTime = 1f;
     public GameObject powerMeterContainer;
     public GameObject barrel;
     public GameObject projectilePrefab;
@@ -30,7 +30,7 @@ public class Launcher : MonoBehaviour
 
             if (power < 1) {
                 float scaledPower = power * barrel.transform.localScale.x;
-                powerMeterContainer.transform.localScale = new Vector3(scaledPower , 1, 1);
+                powerMeterContainer.transform.localScale = new Vector3(scaledPower, 1, 1);
             } else if (charging) {
                 Fire(1);
             }
@@ -63,6 +63,6 @@ public class Launcher : MonoBehaviour
         // not entirely sure why the below works
         Vector3 position = new Vector3(x, y, 0) * projectileDistance + (barrel.transform.position - (barrel.transform.right * 2));
         GameObject projectile = Instantiate(projectilePrefab, position, barrel.transform.rotation);
-        //projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.right * 2000 * power);
+        projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.right * 2000 * power);
     }
 }
