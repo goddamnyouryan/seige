@@ -7,7 +7,7 @@ public class Aimer : MonoBehaviour
     float aimAngle = 0f;
     static float aimAdjustRate = 0.005f;
     float aimedTime = 0.0f;
-    bool facingRight = true;
+    public bool facingRight = true;
 
     // Update is called once per frame
     void Update()

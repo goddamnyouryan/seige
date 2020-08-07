@@ -568,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423c7c6de65319242a4ec13075ba0e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrel: {fileID: 24216744}
+  projectilePrefab: {fileID: 5048884006505675294, guid: 53cf888aca8f4424683b05a4f12ec1fd, type: 3}
 --- !u!4 &1893638051
 Transform:
   m_ObjectHideFlags: 0

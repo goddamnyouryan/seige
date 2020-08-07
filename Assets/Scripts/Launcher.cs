@@ -11,6 +11,11 @@ public class Launcher : MonoBehaviour
     public GameObject powerMeterContainer;
     public GameObject barrel;
     public GameObject projectilePrefab;
+    Aimer aimer;
+
+    void Start() {
+        Aimer aimer = gameObject.GetComponent<Aimer>();
+    }
 
     void Update()
     {
@@ -46,12 +51,18 @@ public class Launcher : MonoBehaviour
     }
 
     void Fire(float power) {
+        // https://answers.unity.com/questions/759542/get-coordinate-with-angle-and-distance.html
         charging = false;
-        float length = barrel.transform.localScale.x + projectilePrefab.transform.localScale.x;
-        Console.Log("fartd");
+        float barrelLength = barrel.transform.localScale.x;
+        float projectileDistance = barrelLength + (projectilePrefab.transform.localScale.x / 2);
+        float aimAngle = barrel.transform.rotation.eulerAngles.z;
+        float radians = aimAngle * Mathf.Deg2Rad;
+        float x = Mathf.Cos(radians);
+        float y = Mathf.Sin(radians);
 
-        //gameObject.transform.position
-        //GameObject projectile = Instantiate(projectilePrefab, barrelEnd, barrel.transform.rotation);
+        // not entirely sure why the below works
+        Vector3 position = new Vector3(x, y, 0) * projectileDistance + (barrel.transform.position - (barrel.transform.right * 2));
+        GameObject projectile = Instantiate(projectilePrefab, position, barrel.transform.rotation);
         //projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.right * 2000 * power);
     }
 }
