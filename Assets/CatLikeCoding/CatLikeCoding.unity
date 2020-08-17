@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8b4d8f532745e4da3f75ca435e9c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
+  size: 10
   voxelResolution: 8
   chunkResolution: 2
   voxelGridPrefab: {fileID: 5503530767999967261, guid: 24c33b0f025368a4b8cbd93e28359493, type: 3}
