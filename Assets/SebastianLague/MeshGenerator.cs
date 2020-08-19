@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +14,11 @@ public class MeshGenerator : MonoBehaviour
         vertices = new List<Vector3>();
         triangles = new List<int>();
 
-        for (int x = 0; x < squareGrid.squares.GetLength(0); x++) {
-            for (int y = 0; y < squareGrid.squares.GetLength(1); y++) {
+        int width = squareGrid.squares.GetLength(0);
+        int height = squareGrid.squares.GetLength(1);
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
                 TriangulateSquare(squareGrid.squares[x,y]);
             }
         }
@@ -156,7 +159,7 @@ public class MeshGenerator : MonoBehaviour
 
             for (int x = 0; x < nodeCountX; x++) {
                 for (int y = 0; y < nodeCountY; y++) {
-                    Vector3 position = new Vector3(-mapWidth / 2 + x * squareSize + squareSize / 2, 0, -mapHeight / 2 + y * squareSize + squareSize / 2);
+                    Vector3 position = new Vector3(-mapWidth / 2 + x * squareSize + squareSize / 2, -mapHeight / 2 + y * squareSize + squareSize / 2, 0);
                     controlNodes[x,y] = new ControlNode(position, map[x,y] == 1, squareSize);
                 }
             }

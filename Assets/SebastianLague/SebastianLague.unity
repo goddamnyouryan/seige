@@ -239,8 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomFillPercent: 45
-  width: 128
-  height: 72
+  width: 50
+  height: 10
+  explosionRadius: 1
   seed: 
   useRandomSeed: 1
 --- !u!4 &1393569521
